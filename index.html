@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>See Your Impact, Drop by Drop | Charity Water</title>
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+	<style>
+		:root{
+			--brand-yellow:#FFD200; /* official primary CTA */
+			--brand-yellow-dark:#E6BC00;
+			--brand-black:#000000; /* official header bar */
+			--ink:#1A1A1A;         /* body text */
+			--muted:#6B7280;       /* secondary text */
+			--bg:#FFFFFF;
+			--card:#F7F7F7;
+			--radius:14px;
+			--shadow:0 10px 30px rgba(0,0,0,.08);
+		}
+
+		* { box-sizing: border-box; }
+		html, body { height: 100%; }
+		body{
+			margin:0;
+			font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+			color:var(--ink);
+			background:var(--bg);
+			line-height:1.6;
+		}
+
+		/* Skip link for a11y */
+		.skip-link{position:absolute;left:-999px;top:auto;width:1px;height:1px;overflow:hidden;}
+		.skip-link:focus{left:1rem;top:1rem;width:auto;height:auto;padding:.5rem .75rem;background:#fff;border-radius:8px;box-shadow:var(--shadow);}
+
+		/* Header */
+		.site-header{
+			background:var(--brand-black);
+			color:#fff;
+		}
+		.header-inner{
+			max-width:1120px; margin:0 auto; padding:14px 18px; display:flex; align-items:center; justify-content:space-between;
+		}
+		.brand{
+			display:flex; align-items:center; gap:.75rem; text-decoration:none; color:#fff;
+		}
+		.brand-mark{
+			width:36px; height:36px; display:grid; place-items:center; background:var(--brand-yellow); color:#000; border-radius:6px; font-weight:800;
+		}
+		.brand-name{ font-family: "Playfair Display", serif; font-weight:800; letter-spacing:.5px; font-size: clamp(1.2rem, 1.2rem + .6vw, 1.6rem); }
+
+		.btn{
+			--btn-pad: .65rem 1rem;
+			display:inline-block; padding:var(--btn-pad); border-radius:999px; font-weight:700; text-decoration:none; transition:transform .06s ease, box-shadow .2s ease, background .2s ease; box-shadow:0 2px 0 rgba(0,0,0,.2);
+		}
+		.btn-primary{ background:var(--brand-yellow); color:#000; }
+		.btn-primary:hover{ background:var(--brand-yellow-dark); transform: translateY(-1px); }
+		.btn-primary:active{ transform: translateY(0); box-shadow:none; }
+
+		/* Hero */
+		.hero{ max-width:1120px; margin:0 auto; padding: clamp(22px, 2.5vw, 32px) 18px 42px; }
+		.hero-card{
+			display:grid; gap:0; grid-template-columns: 1.05fr .95fr; background:#fff; border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow);
+		}
+		.copy{ padding: clamp(24px, 3.4vw, 44px); display:flex; flex-direction:column; justify-content:center; }
+		.eyebrow{ font-weight:700; color:var(--muted); text-transform:uppercase; letter-spacing:.12em; font-size:.8rem; }
+		.h1{ font-family: "Playfair Display", serif; font-size: clamp(1.8rem, 1.2rem + 2.2vw, 2.6rem); line-height:1.15; margin:.35rem 0 1rem; }
+		.h1 .drop{ font-size:1.05em; }
+		.lede{ color:#111; font-weight:600; margin:0 0 1.25rem; }
+		.fineprint{ color:var(--muted); font-size:.95rem; margin:.25rem 0 1.25rem; }
+
+		.cta-row{ display:flex; align-items:center; gap:.75rem; flex-wrap:wrap; }
+		.cta-row .btn{ padding:.7rem 1.05rem; }
+		.trust{ font-size:.85rem; color:var(--muted); margin-left:.25rem; }
+
+		.media{ position:relative; background:#000; }
+		.media img{ width:100%; height:100%; object-fit:cover; display:block; filter:saturate(105%); }
+		.media .caption{ position:absolute; left:14px; bottom:14px; background:rgba(0,0,0,.55); color:#fff; padding:.35rem .6rem; border-radius:10px; font-size:.8rem; }
+
+		/* Value Props */
+		.section{ max-width:1120px; margin:0 auto; padding: 6px 18px 64px; }
+		.cards{ display:grid; gap:16px; grid-template-columns: repeat(3, 1fr); }
+		.card{ background:var(--card); padding:20px; border-radius:var(--radius); box-shadow:var(--shadow); }
+		.card h3{ margin:.2rem 0 .4rem; font-size:1.05rem; }
+		.card p{ margin:0; color:#374151; font-size:.95rem; }
+
+		/* Footer */
+		.site-footer{ background:#111; color:#C7C9CF; padding:36px 18px; }
+		.footer-inner{ max-width:1120px; margin:0 auto; display:flex; align-items:center; justify-content:space-between; gap:16px; }
+		.site-footer a{ color:#fff; text-decoration:none; }
+
+		/* Responsive */
+		@media (max-width: 900px){
+			.hero-card{ grid-template-columns: 1fr; }
+			.media{ order:-1; height: 280px; }
+		}
+
+		@media (max-width: 640px){
+			.cards{ grid-template-columns: 1fr; }
+			.header-inner{ flex-wrap:wrap; gap:10px; }
+		}
+	</style>
+</head>
+<body>
+	<a class="skip-link" href="#main">Skip to content</a>
+
+	<!-- Top Bar / Logo / Donate -->
+	<header class="site-header" role="banner">
+		<div class="header-inner">
+			<a class="brand" href="#" aria-label="Charity: water home">
+				<span class="brand-mark" aria-hidden="true">𐄷</span>
+				<span class="brand-name">charity: water</span>
+			</a>
+			<nav aria-label="Primary">
+				<a class="btn btn-primary" href="#donate">Donate</a>
+			</nav>
+		</div>
+	</header>
+
+	<main id="main">
+		<!-- HERO -->
+		<section class="hero" aria-labelledby="hero-title">
+			<div class="hero-card" role="region" aria-label="See your impact">
+				<div class="copy">
+					<span class="eyebrow">Clean Water Changes Everything</span>
+					<h1 id="hero-title" class="h1">See Your Impact, Drop by Drop <span class="drop" aria-hidden="true">💧</span></h1>
+					<p class="lede">Every penny you give funds a real project you can follow. We’ll show you exactly where your gift goes and the difference you’re making.</p>
+					<p class="fineprint">Your donation helps bring clean, safe water to communities around the world.</p>
+					<div class="cta-row">
+						<a class="btn btn-primary" href="#donate" aria-label="Donate now">Donate</a>
+						<a class="btn" style="background:#000;color:#fff" href="#how-it-works">How it works</a>
+						<span class="trust">Tax‑deductible • Secure giving</span>
+					</div>
+				</div>
+				<figure class="media">
+					<img src="https://images.unsplash.com/photo-1509099836639-18ba1795216d?q=80&w=1600&auto=format&fit=crop" alt="Close‑up of clean water pouring into a container with a smiling child in the background" />
+					<figcaption class="caption">Photography placeholder — replace with brand imagery</figcaption>
+				</figure>
+			</div>
+		</section>
+
+		<!-- VALUE PROPS / REASSURANCE -->
+		<section class="section" id="how-it-works" aria-labelledby="how">
+			<h2 id="how" class="eyebrow" style="margin-bottom:12px">Why give here</h2>
+			<div class="cards">
+				<article class="card">
+					<h3>100% to the Field</h3>
+					<p>Your donation funds water projects — not overhead. We’ll send proof of exactly where it goes.</p>
+				</article>
+				<article class="card">
+					<h3>Trackable Impact</h3>
+					<p>Receive updates and GPS coordinates when projects are complete so you can see your impact.</p>
+				</article>
+				<article class="card">
+					<h3>Locally Led</h3>
+					<p>We partner with local experts to build sustainable solutions that last for years.</p>
+				</article>
+			</div>
+		</section>
+
+		<!-- DONATE SECTION (anchor only / no JS) -->
+		<section class="section" id="donate" aria-labelledby="donate-title" style="padding-bottom:84px">
+			<div class="card" style="background:#fff">
+				<h2 id="donate-title" class="h1" style="font-size:1.6rem; margin:0 0 .5rem">Make a Donation</h2>
+				<p class="fineprint" style="margin:0 0 1rem">Choose an amount to get started — you can change it on the next page.</p>
+				<div class="cta-row" style="margin:.25rem 0 0">
+					<a class="btn btn-primary" href="#">$25</a>
+					<a class="btn btn-primary" href="#">$50</a>
+					<a class="btn btn-primary" href="#">$100</a>
+					<a class="btn btn-primary" href="#">$250</a>
+					<a class="btn" style="background:#000;color:#fff" href="#">Give Monthly</a>
+				</div>
+			</div>
+		</section>
+	</main>
+
+	<footer class="site-footer" role="contentinfo">
+		<div class="footer-inner">
+			<small>© <span id="year">2025</span> charity: water — Clean water for everyone.</small>
+			<a href="#" class="btn btn-primary" aria-label="Donate from footer">Donate</a>
+		</div>
+	</footer>
+
+	<script>
+		// Tiny enhancement: keep the year current without any frameworks.
+		document.getElementById('year').textContent = new Date().getFullYear();
+	</script>
+</body>
+</html>
